@@ -10,9 +10,9 @@
 1. Initial Raw Submission   **[Model: `initial`]**
 2. Added Features Submission *(EDA +  Feature Engineering)* **[Model: `add_features`]**
 3. Hyperparameter Optimization (hpo1) - Initial Setting Submission 
-4. Hyperparameter Optimization (hpo2) - Setting 1 Submission 
-5. Hyperparameter Optimization (hpo3) - Setting 2 Submission
-6. Hyperparameter Optimization (hpo) - Setting 2 Submission **[Model: `hpo (top-hpo-model: hpo)`]**
+4. Hyperparameter Optimization (hpo2) - Setting 2 Submission 
+5. Hyperparameter Optimization (hpo3) - Setting 3 Submission
+6. Hyperparameter Optimization (hpo) - Auto Setting Submission **[Model: `hpo (top-hpo-model: hpo)`]**
 7. XGBoost HPO Submission **[Model: `hpo (best-model: hpo)`] among all models**
 8. Random Forest Regression	HPO Submission
 9. Neural Network HPO Submission
