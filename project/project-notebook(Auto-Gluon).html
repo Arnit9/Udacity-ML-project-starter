@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>project-template</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>project-notebook(Auto-Gluon)</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -22446,14 +22446,14 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[98]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The 3 hyperparameters we tuned with the kaggle score as the result</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">"model"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"initial"</span><span class="p">,</span> <span class="s2">"add_features"</span><span class="p">,</span> <span class="s2">"hpo"</span><span class="p">],</span>
     <span class="s2">"hpo1"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"prescribed_values"</span><span class="p">,</span> <span class="s2">"prescribed_values"</span><span class="p">,</span> <span class="s2">"prescribed_values"</span><span class="p">],</span>
-    <span class="s2">"hpo2"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"prescribed_values"</span><span class="p">,</span> <span class="s2">"prescribed_values"</span><span class="p">,</span> <span class="s2">"prescribed_values"</span><span class="p">],</span>
+    <span class="s2">"hpo2"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"prescribed_values"</span><span class="p">,</span> <span class="s2">"prescribed_values"</span><span class="p">,</span> <span class="s2">"num_bag_folds, num_bag_sets, num_stack_levels"</span><span class="p">],</span>
     <span class="s2">"hpo3"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"presets: 'high quality'"</span><span class="p">,</span> <span class="s2">"presets: 'high quality'"</span><span class="p">,</span> <span class="s2">"hyperparameter_tune_kwargs='auto'"</span><span class="p">],</span>
     <span class="s2">"score"</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.79438</span><span class="p">,</span> <span class="mf">0.53813</span><span class="p">,</span> <span class="mf">0.53854</span><span class="p">]</span>
 <span class="p">})</span>
@@ -22474,7 +22474,7 @@ jp-needs-light-background
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[98]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
 
 
@@ -22525,7 +22525,7 @@ jp-needs-light-background
       <th>2</th>
       <td>hpo</td>
       <td>prescribed_values</td>
-      <td>prescribed_values</td>
+      <td>num_bag_folds, num_bag_sets, num_stack_levels</td>
       <td>hyperparameter_tune_kwargs='auto'</td>
       <td>0.53854</td>
     </tr>
