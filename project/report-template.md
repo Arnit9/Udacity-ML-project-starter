@@ -5,7 +5,7 @@
 ### What did you realize when you tried to submit your predictions? What changes were needed to the output of the predictor to submit your results?
 
 **Nine different experiments were performed as follows:
-(first 6 belongs to <a href="https://github.com/Arnit9/Udacity-ML-project-starter/blob/master/project/project-notebook(Auto-Gluon).ipynb" target="_blank">AutoGluon Model Notebook</a> and the other 3 belongs to <a href="https://github.com/Arnit9/Udacity-ML-project-starter/blob/master/project/Project%20Stand%20Out_Notebook(diff_models).ipynb" target="_blank">Other Models Notebook</a>)**
+(first 6 belongs to <a href="https://github.com/Arnit9/Udacity-ML-project-starter/blob/master/project/project-notebook(Auto-Gluon).ipynb" target="_blank">AutoGluon Model Notebook</a> and the other 3 belongs to <a href="https://github.com/Arnit9/Udacity-ML-project-starter/blob/master/project/Project%20Stand%20Out_Notebook(diff_models).ipynb" target="_blank">Other Models Notebook(Stand Out)</a>)**
 
 1. Initial Raw Submission   **[Model: `initial`]**
 2. Added Features Submission *(EDA +  Feature Engineering)* **[Model: `add_features`]**
