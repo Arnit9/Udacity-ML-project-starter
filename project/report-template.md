@@ -78,7 +78,7 @@ The `top-ranked model` was the `(add features) model` hyperparameter optimizatio
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
-![all_models_test_score.png](all_models_test_score.png)
+![all_models_test_score.png](img/all_models_test_score.png)
 
 ## Summary
 - This bike sharing demand forecast project has carefully examined and included the AutoGluon AutoML framework for Tabular Data.
