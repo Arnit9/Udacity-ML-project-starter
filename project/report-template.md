@@ -25,15 +25,13 @@ The `top-ranked model` was the `(add features) model` hyperparameter optimizatio
 
 ## Exploratory data analysis and feature creation
 ### What did the exploratory analysis find and how did you add additional features?
-**For AutoGluon Notebook:**
+
 - Feature `datetime` was parsed as a datetime feature to obtain hour information from timestamp
 - Independent features `season` and `weather` were initially read as `integer`. Since these are categorical variables, they were transformed into `category` data type.
 - The data for `year`, `month`, `day` *(dayofweek)* and `hour` were extracted as distinct independent features from the `datetime` feature using feature extraction. Upon feature extraction, `datetime` feature was dropped. 
 - After probing and considering the features, `casual` and `registered`, it was noticed that the RMSE scores improved significantly during cross-validation and these independent features were highly co-related to the target variable `count`. However, the features `casual` and `registered` are only present in the train dataset and absent in the test data; hence, these features were ignored/dropped during model training
 - Moreover, features `temp` (temperature in degree Celsius) and `atemp` (*'feels like'* temperature in degree Celsius) had a `high positive correlation of 0.98`. Hence, in order to reduce multicollinearity between independent variables, `atemp` was dropped from the train and test datasets respectively.
 - Further, data visualization was conducted to derive insights from the features.
-
-**For Other-Models Notebook:**
 - *Histogram* of different features were plotted and obsereved to see variations like `seasons` and `weather` belong to categorical features due to limited value_counts or logically also. `holiday` and `workingday` features are one-hot encoded columns with 0 and 1
 - *Correlation(Heatplot) Matrix* was plotted to observe the dependency ratio between two features among all. `temp` and `atemp` features are highly correlated with a positive correlation of 0.97. `casual` and `registered` are also highly correlated to the target- `count`.
 - The data for `year`, `month`, `day` *(dayofweek)* and `hour` were extracted as distinct independent features from the `datetime` feature as done before and histogram plot of all features were analyzed.
@@ -44,17 +42,17 @@ The `top-ranked model` was the `(add features) model` hyperparameter optimizatio
 
 
 ### How much better did your model preform after adding additional features and why do you think that is?
-- The addition of additional features `improved model performance by approximately 70%` in comparison to the initial/raw model (without EDA and/or feature engineering) performance.
+- The addition of additional features `improved model performance by approximately 78.5%` in comparison to the initial/raw model (without EDA and/or feature engineering) performance.
 - The model performance improved after converting certain categorical variables with `integer` data types into their true `categorical` datatypes. 
 - In addition to ignoring `casual` and `registered` features during model training, even `atemp` was dropped from the datasets, as it was highly correlated to another independent variable `temp`. This assisted in reducing multicollinearity.
 - Moreover, splitting the `datetime` feature into multiple independent features such as `year`, `month`, `day` and `hour` along with the addition of dummy variables of `season` and `weather`, further improved the model performance.
 - These predictor variables `aid the model assess seasonality or historical patterns in the data` more effectively.
-- At one case, it was seen that on having many columns of on-hot-encoded dummy variables, the AutoGluon model shows comparatively poor performance. This didn't happen in case of other 3 models where the score was comparatively better than the AutoGluon models. 
 
 ## Hyper parameter tuning
 ### How much better did your model preform after trying different hyper parameters?
-- AutoGluon Hyperparameter tuning was beneficial upto some extent because it enhanced the model's performance compared to the initial submission. Four different configurations were used while performing hyperparameter optimization experiments. The model with EDA and extra features performed significantly better on the Kaggle (test) dataset, despite hyperparameter optimised models delivering competitive performances in comparison. On 3 cases, the results were better than inital but they're going abnormal on increasing with parameter values.
-- XGBoost Hyperparameter tuning was the best among all model where the best parameters were obtained through trial-and-error method and successive iterations. Similarly, the Random Forest Regression and Neural Network- hyperparameter optimization shows much better score but among all XGBoost model gives the top-model-score.  
+- AutoGluon Hyperparameter tuning was beneficial upto great extent because it enhanced the model's performance compared to the initial submission. Three different configurations were used while performing hyperparameter optimization experiments. The model with EDA and extra features performed significantly better on the Kaggle (test) dataset, despite hyperparameter optimised models delivering competitive performances in comparison. On 3 cases, the results were better than inital but they're going abnormal on increasing with parameter values.
+- After adding different hyperparameters in 3 scenarios it was observed that the score declined very negligibly implying that there might be overfitting during training. 
+- XGBoost Hyperparameter tuning was the best among all model where the best parameters were obtained through trial-and-error method and successive iterations. Similarly, the Random Forest Regression- hyperparameter optimization shows much better score than AutoGluon but among all XGBoost model gives the top-model-score.  
 
 ### If you were given more time with this dataset, where do you think you would spend more time?
 - I would like to investigate additional potential outcomes when AutoGluon is run for an extended period with a high quality preset and enhanced hyperparameter tuning.
@@ -64,25 +62,29 @@ The `top-ranked model` was the `(add features) model` hyperparameter optimizatio
 ### Create a table with the models you ran, the hyperparameters modified, and the kaggle score.
 |model|hpo1|hpo2|hpo3|score|
 |--|--|--|--|--|
-|initial|prescribed_values|prescribed_values|"presets: 'high quality' (auto_stack=True)"|1.79438|
-|add_features|prescribed_values|prescribed_values|"presets: 'high quality' (auto_stack=True)"|0.53813|
-|autogluon-hpo|prescribed_values|num_bag_folds, num_bag_sets, num_stack_levels|hyperparameter_tune_kwargs='auto'|0.53854|
-|xgboost-hpo|n_estimators|max_depth|learning_rate|0.38604|
-|rf-hpo|n_estimators|n_jobs|max_features|0.47553|
-|nn-hpo|keras-dense-layers|activation_function|optimizer|0.50491|
+|initial|prescribed_values|prescribed_values|"presets: 'high quality'"|1.79438|
+|add_features|prescribed_values|prescribed_values|"presets: 'high quality'"|0.44719|
+|hpo1_ag|prescribed_values|GBM, XGB, RF|presets: 'optimize_for_deployment|0.51957|
+|hpo2_ag|prescribed_values|hpo1 + CAT|presets: 'optimize_for_deployment|0.51782|
+|hpo3_ag|prescribed_values|hpo2 + KNN|presets: 'optimize_for_deployment|0.52776|
+|hpo_xgb|prescribed_values|max_depth|learning_rate|0.38604|
+|hpo_rf|prescribed_values|n_jobs|max_features|0.47632|
 
 ### Create a line plot showing the top model score for the three (or more) training runs during the project.
 
 ![model_train_score.png](img/model_train_score.png)
+
 ![model_test_score.png](img/model_test_score.png)
 
 ### Create a line plot showing the top kaggle score for the three (or more) prediction submissions during the project.
 
-![diff_models_test_score.png](img/diff_models_test_score.png)
+![all_models_test_score.png](all_models_test_score.png)
 
 ## Summary
 - This bike sharing demand forecast project has carefully examined and included the AutoGluon AutoML framework for Tabular Data.
 - By utilising data from rigorous exploratory data analysis (EDA) and feature engineering without hyperparameter optimisation, the top-ranked AutoGluon-based model greatly improved results.
 - Addtionally, hyperparameter tuning using AutoGluon also offered improved performance over the initial raw submission; but it wasn't better than that of the model with EDA, feature engineering (with no hyperparameter tuning).  
-- It was noticed that on increasing feature columns through dummy variables, the XGBoost model along with hyperparameter optimization performed the best where in the case of AutoGluon model, it shows even worse score than the normal added features model.
+- It was noticed that on increasing feature columns through dummy variables, the XGBoost model along with hyperparameter optimization performed the best where in the case of AutoGluon model, it shows comparatively less score but it out-performed the initial case.
 - The top-ranked model was the (`extra added features`) **XGBoost** model with hyperparameters, with the best Kaggle score of **0.38604** (on test dataset) among all other models.
+- Learnt to properly implement the hyperparameters of AutoGluon as previously the reviewer of `Udacity` helped me by providing some resources.
+- AutoGluon model hyperparameter optimization has to be performed carefully else, on mixing up random parameters and callbacks of non-related model for training may result in overfitting/underfitting of the model.
