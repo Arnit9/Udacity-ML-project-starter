@@ -4,18 +4,16 @@
 ## Initial Training
 ### What did you realize when you tried to submit your predictions? What changes were needed to the output of the predictor to submit your results?
 
-**Nine different experiments were performed as follows:
-(first 6 belongs to <a href="https://github.com/Arnit9/Udacity-ML-project-starter/blob/master/project/project-notebook(Auto-Gluon).ipynb" target="_blank">AutoGluon Model Notebook</a> and the other 3 belongs to <a href="https://github.com/Arnit9/Udacity-ML-project-starter/blob/master/project/Project%20Stand%20Out_Notebook(diff_models).ipynb" target="_blank">Other Models Notebook(Stand Out)</a>)**
+**Seven different models were performed as follows:
+(<a href="https://github.com/Arnit9/Udacity-ML-project-starter/blob/master/project/final-project1-notebook-Bike_Sharing_Demand_Pred.ipynb">Notebook</a>)**
 
 1. Initial Raw Submission   **[Model: `initial`]**
 2. Added Features Submission *(EDA +  Feature Engineering)* **[Model: `add_features`]**
-3. Hyperparameter Optimization (hpo1) - Initial Setting Submission 
-4. Hyperparameter Optimization (hpo2) - Setting 2 Submission 
-5. Hyperparameter Optimization (hpo3) - Setting 3 Submission
-6. Hyperparameter Optimization (hpo) - Auto Setting Submission **[Model: `hpo (top-hpo-model: hpo)`]**
-7. XGBoost HPO Submission **[Model: `hpo (best-model: hpo)`] among all models**
-8. Random Forest Regression	HPO Submission
-9. Neural Network HPO Submission
+3. Hyperparameter Optimization (hpo1) - GBM, XGB, RF 
+4. Hyperparameter Optimization (hpo2) - hpo1 + CAT **[Model: `hpo (top-hpo-model: hpo)`]**
+5. Hyperparameter Optimization (hpo3) - hpo2 + KNN
+6. XGBoost HPO Submission **[Model: `hpo (best-model: hpo)`] among all models**
+7. Random Forest Regression	HPO Submission
 
 **Observation:** While submitting predictions, some of the experiments delivered negative predictions values.<br>
 So, Kaggle refuses the submissions containing negative predictions values obtained from the predictor. Hence, all such negative outputs from respective predictors were replaced with 0.<br>
